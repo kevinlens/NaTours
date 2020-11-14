@@ -7,19 +7,31 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+html {
+  /* by doing this you are changing all the rem to: 1rem = 10px */
+  /* by default the root pixel is 16px but you want 10px. But you can't put it into the font size property
+  here because it's a REALLY bad practice so you set it to a percentage which would in turn 
+  translate the default root font size given by the browser. 10/16 = 0.625 and so 62.5%  */
+  font-size: 62.5%;
 }
 
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
+
+  box-sizing: border-box;
 }
 
 /* ======================================================================== */
@@ -45,13 +57,13 @@ body {
 
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
   /* You don't need to specify the width as it will automatically figured out by the browser */
-  height: 35px;
+  height: 3.5rem;
 }
 
 /* ---------------------------------- */
@@ -71,14 +83,14 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
   /* animation */
   animation-name: moveInLeft;
@@ -90,9 +102,9 @@ body {
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
 
   /* A quicker way to type animations */
   animation: moveInRight 1s ease-out;
@@ -101,11 +113,11 @@ body {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   100% {
@@ -118,11 +130,11 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   100% {
@@ -135,7 +147,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
 
   100% {
@@ -156,10 +168,10 @@ body {
   text-transform: uppercase;
   text-decoration: none;
 
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   /* 'inline-block' would get its own personal space as a block but 'block' would take up the whole line space(meaning it would spread out all the way) */
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
 
   /* all transition possibility at .2 seconds */
   /* transition makes all the transform animation smoother */
@@ -167,18 +179,19 @@ body {
 
   /* it is important to set the position to relative because so that other elements will reference to this paraent element(know where to begin positioning aka starting point) */
   position: relative;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
   transform: translateY(-3px);
   /* axis: x(-x), y(-y), and 10px, in blur(with 1 being no blur) */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
   transform: translateY(-1px);
   /* axis: x(-x), y(-y), and 10px, in blur(with 1 being no blur) */
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
@@ -200,7 +213,7 @@ body {
   /* basically here the '::after duplicate button' is treated as a child of the original button and getting 100% size of that original */
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
 
   /* this looks bizare but actually it is referencing its starting point to the original button's position(which had set the position: relative) */
   position: absolute;
