@@ -1,0 +1,21 @@
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* by doing this you are changing all the rem to: 1rem = 10px */
+  /* by default the root pixel is 16px but you want 10px. But you can't put it into the font size property
+  here because it's a REALLY bad practice so you set it to a percentage which would in turn 
+  translate the default root font size given by the browser. 10/16 = 0.625 and so 62.5%  */
+  //This defines what 1rem is
+  font-size: 62.5%;
+}
+
+body{
+  box-sizing: border-box;
+}

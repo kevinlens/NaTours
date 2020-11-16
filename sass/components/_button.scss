@@ -1,0 +1,84 @@
+
+.btn {
+  //Pseudo class
+  /* the button itself and its assocaited link*/
+  /* the .btn:'visited' will also be the SAME color ect as the .btn:'link' as well */
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+
+    padding: 1.5rem 4rem;
+    /* 'inline-block' would get its own personal space as a block but 'block' would take up the whole line space(meaning it would spread out all the way) */
+    display: inline-block;
+    border-radius: 10rem;
+
+    /* all transition possibility at .2 seconds */
+    /* transition makes all the transform animation smoother */
+    transition: all 0.2s;
+
+    /* it is important to set the position to relative because so that other elements will reference to this paraent element(know where to begin positioning aka starting point) */
+    position: relative;
+    font-size: 1.6rem;
+  }
+  //Pseudo class
+  &:hover {
+    transform: translateY(-3px);
+    /* axis: x(-x), y(-y), and 10px, in blur(with 1 being no blur) */
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    /* After Pseudo Elements which has double :: */
+    &::after {
+      //x and y axis scaling
+      transform: scaleX(1.4) scaleY(1.6);
+
+      /* as you hover over the pseudo element button expands and then transition and then opacity: 0; */
+      opacity: 0;
+    }
+  }
+
+  //Pseudo class
+  &:active {
+    transform: translateY(-1px);
+    /* axis: x(-x), y(-y), and 10px, in blur(with 1 being no blur) */
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    /* Pseudo Elements which has double :: */
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  /* this .btn:'after' is a virtual element that we make appear BEHIND(after) our button  */
+  /* we are here trying to make the virtual element look the same as the original button */
+  &::after {
+    /* this 'content' just has to be here */
+    content: '';
+    display: inline-block;
+    /* basically here the '::after duplicate button' is treated as a child of the original button and getting 100% size of that original */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+
+    /* this looks bizare but actually it is referencing its starting point to the original button's position(which had set the position: relative) */
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    /* finish in .5s and begin animation after .75s wait  */
+    animation: moveInBottom 0.5s ease-in-out 0.75s;
+
+    /* this means in the keyframes at 0%, all the properties are applied to the button before it even start(trying to make the button not visible upon start) */
+    animation-fill-mode: backwards;
+  }
+}

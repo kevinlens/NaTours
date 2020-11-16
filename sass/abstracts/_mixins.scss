@@ -1,0 +1,10 @@
+@mixin clearfix {
+  //pseudo element
+  &::after{
+      content:"";
+      //standard version for the clearfix
+      display: table;
+      //clear for both float:left and float:right; 
+      clear: both;
+  }
+}
