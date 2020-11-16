@@ -1,27 +1,16 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
-}
+  box-sizing: inherit; }
 
 html {
   /* by doing this you are changing all the rem to: 1rem = 10px */
   /* by default the root pixel is 16px but you want 10px. But you can't put it into the font size property
   here because it's a REALLY bad practice so you set it to a percentage which would in turn 
   translate the default root font size given by the browser. 10/16 = 0.625 and so 62.5%  */
-  font-size: 62.5%;
-}
+  font-size: 62.5%; }
 
 body {
   font-family: 'Lato', sans-serif;
@@ -30,217 +19,150 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 3rem;
-
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 /* ======================================================================== */
 .header {
   height: 95vh;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(126, 213, 111, 0.8),
-      rgba(40, 180, 133, 0.8)
-    ),
-    url('../img/hero.jpg');
+  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
   /* means always try and fit the image inside the box */
   background-size: cover;
   /* means the center top of image stays where it is no matter how much we resize image */
   background-position: top;
-
   /* modern css property to clip image */
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-
   /* this is where other elements inside the header will reference(know where to start) when positioning */
-  position: relative;
-}
-
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
-
-.header__logo {
-  /* You don't need to specify the width as it will automatically figured out by the browser */
-  height: 3.5rem;
-}
-
-/* ---------------------------------- */
-
-.header__text-box {
-  position: absolute;
-  /* these are in relations to the parent element(header). so start positioning inside the header */
-  top: 40%;
-  left: 50%;
-  /* this makes it so that the element is actually shifted 50% to the top and left(meaning the center of the element is actually the center) */
-  /* if you didn't do this, by default the left side of this element would be considered to be the center */
-  transform: translate(-50%, -50%);
-  /* all the other text elements within this textbox will be centered */
-  text-align: center;
-}
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    /* You don't need to specify the width as it will automatically figured out by the browser */
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    /* these are in relations to the parent element(header). so start positioning inside the header */
+    top: 40%;
+    left: 50%;
+    /* this makes it so that the element is actually shifted 50% to the top and left(meaning the center of the element is actually the center) */
+    /* if you didn't do this, by default the left side of this element would be considered to be the center */
+    transform: translate(-50%, -50%);
+    /* all the other text elements within this textbox will be centered */
+    text-align: center; }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-  margin-bottom: 6rem;
-}
-
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-
-  /* animation */
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  /* animation-iteration-count: 3; */
-  /* animation-delay: 3s; */
-}
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-
-  /* A quicker way to type animations */
-  animation: moveInRight 1s ease-out;
-}
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /* animation */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 3s; */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /* A quicker way to type animations */
+    animation: moveInRight 1s ease-out; }
 
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-10rem);
-  }
-
+    transform: translateX(-10rem); }
   80% {
-    transform: translateX(1rem);
-  }
-
+    transform: translateX(1rem); }
   100% {
     opacity: 1;
     /* translate to zero would mean bring it back to its original state */
-    transform: translate(0);
-  }
-}
+    transform: translate(0); } }
 
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(10rem);
-  }
-
+    transform: translateX(10rem); }
   80% {
-    transform: translateX(-1rem);
-  }
-
+    transform: translateX(-1rem); }
   100% {
     opacity: 1;
     /* translate to zero would mean bring it back to its original state */
-    transform: translate(0);
-  }
-}
+    transform: translate(0); } }
 
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(3rem);
-  }
-
+    transform: translateY(3rem); }
   100% {
     opacity: 1;
     /* translate to zero would mean bring it back to its original state */
-    transform: translate(0);
-  }
-}
+    transform: translate(0); } }
 
 /* ---------------------------------- */
 /* ---------------------------------- */
 /* ---------------------------------- */
-
-/* the button itself and its assocaited link*/
-/* the .btn:'visited' will also be the SAME color ect as the .btn:'link' as well */
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-
-  padding: 1.5rem 4rem;
-  /* 'inline-block' would get its own personal space as a block but 'block' would take up the whole line space(meaning it would spread out all the way) */
-  display: inline-block;
-  border-radius: 10rem;
-
-  /* all transition possibility at .2 seconds */
-  /* transition makes all the transform animation smoother */
-  transition: all 0.2s;
-
-  /* it is important to set the position to relative because so that other elements will reference to this paraent element(know where to begin positioning aka starting point) */
-  position: relative;
-  font-size: 1.6rem;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  /* axis: x(-x), y(-y), and 10px, in blur(with 1 being no blur) */
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
-
-.btn:active {
-  transform: translateY(-1px);
-  /* axis: x(-x), y(-y), and 10px, in blur(with 1 being no blur) */
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
-
-.btn--white {
-  background-color: #fff;
-  color: #777;
-}
-
-/* After Pseudo Elements which has double :: */
-/* ----------------------------------------- */
-/* ----------------------------------------- */
-/* ----------------------------------------- */
-
-/* this .btn:'after' is a virtual element that we make appear BEHIND(after) our button  */
-/* we are here trying to make the virtual element look the same as the original button */
-.btn::after {
-  /* this 'content' just has to be here */
-  content: '';
-  display: inline-block;
-  /* basically here the '::after duplicate button' is treated as a child of the original button and getting 100% size of that original */
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-
-  /* this looks bizare but actually it is referencing its starting point to the original button's position(which had set the position: relative) */
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  z-index: -1;
-  transition: all 0.4s;
-}
-
-.btn--white::after {
-  background-color: #fff;
-}
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-
-  /* as you hover over the pseudo element button expands and then transition and then opacity: 0; */
-  opacity: 0;
-}
-
-.btn--animated {
-  /* finish in .5s and begin animation after .75s wait  */
-  animation: moveInBottom 0.5s ease-in-out 0.75s;
-
-  /* this means in the keyframes at 0%, all the properties are applied to the button before it even start(trying to make the button not visible upon start) */
-  animation-fill-mode: backwards;
-}
+.btn {
+  /* the button itself and its assocaited link*/
+  /* the .btn:'visited' will also be the SAME color ect as the .btn:'link' as well */
+  /* this .btn:'after' is a virtual element that we make appear BEHIND(after) our button  */
+  /* we are here trying to make the virtual element look the same as the original button */ }
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    /* 'inline-block' would get its own personal space as a block but 'block' would take up the whole line space(meaning it would spread out all the way) */
+    display: inline-block;
+    border-radius: 10rem;
+    /* all transition possibility at .2 seconds */
+    /* transition makes all the transform animation smoother */
+    transition: all 0.2s;
+    /* it is important to set the position to relative because so that other elements will reference to this paraent element(know where to begin positioning aka starting point) */
+    position: relative;
+    font-size: 1.6rem; }
+  .btn:hover {
+    transform: translateY(-3px);
+    /* axis: x(-x), y(-y), and 10px, in blur(with 1 being no blur) */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    /* After Pseudo Elements which has double :: */ }
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      /* as you hover over the pseudo element button expands and then transition and then opacity: 0; */
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-1px);
+    /* axis: x(-x), y(-y), and 10px, in blur(with 1 being no blur) */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .btn--white {
+    background-color: #fff;
+    color: #777;
+    /* Pseudo Elements which has double :: */ }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
+    /* this 'content' just has to be here */
+    content: '';
+    display: inline-block;
+    /* basically here the '::after duplicate button' is treated as a child of the original button and getting 100% size of that original */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* this looks bizare but actually it is referencing its starting point to the original button's position(which had set the position: relative) */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s; }
+  .btn--animated {
+    /* finish in .5s and begin animation after .75s wait  */
+    animation: moveInBottom 0.5s ease-in-out 0.75s;
+    /* this means in the keyframes at 0%, all the properties are applied to the button before it even start(trying to make the button not visible upon start) */
+    animation-fill-mode: backwards; }
 
 /* ======================================================================== */
