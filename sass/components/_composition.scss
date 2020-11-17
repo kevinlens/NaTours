@@ -1,0 +1,49 @@
+.composition {
+  //Very IMPORTANT to set if you're going to be using position: absolute for any one of its child
+  position: relative;
+
+  &__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+    border-radius: 2px;
+    outline-offset: 2rem;
+    z-index: 10;
+
+    //The position will now be relative to the PARENT block container('composition')
+    position: absolute;
+
+    //enable all SMOOTH transition within .2s
+    transition: all 0.2s;
+
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+
+    &--p2 {
+      right: 0;
+      top: 2rem;
+    }
+
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+    }
+
+    &:hover {
+      //also need an outline-offset(already created from the top) to add space to outline border
+      outline: 1.5rem solid $color-primary;
+
+      transform: scale(1.05) translateY(-0.5rem);
+      //x direction, y direction, and amount of blur
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+      z-index: 20;
+    }
+  }
+
+  //if one photo is hover, shrink the other ones that are NOT hovered
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
+  }
+  
+}
