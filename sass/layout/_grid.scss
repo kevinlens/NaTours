@@ -1,6 +1,7 @@
 .row {
   max-width: $grid-width;
-  background-color: #eee;
+  // background-color: #eee;
+
   //people do this to center block elements
   margin: 0 auto;
 
@@ -13,7 +14,8 @@
 
   //selects all class that has attributes that starts with "col="
   [class^='col-'] {
-    background-color: orangered;
+    // background-color: orangered;
+    
     float: left;
 
     //everything EXCEPT the last child
