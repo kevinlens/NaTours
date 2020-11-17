@@ -69,3 +69,19 @@ body {
   }
 
 }
+
+
+.heading-tertiary{
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph{
+  font-size: $default-font-size;
+  
+  // apply to all paragraph EXCEPT the last child
+  &:not(:last-child){
+    margin-bottom: 3rem;
+  }
+}
