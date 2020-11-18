@@ -41,7 +41,7 @@
     }
   }
 
-  //if one photo is hover, shrink the other ones that are NOT hovered
+  //if there is hover(.composition:hover), shrink the other ones that are NOT hovered
   &:hover &__photo:not(:hover) {
     transform: scale(0.95);
   }
