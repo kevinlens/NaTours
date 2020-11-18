@@ -1,0 +1,33 @@
+.feature-box {
+  background-color: rgba($color-white, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  //x direction, y direction, and amount of blur
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+  //enable SMOOTH transform transition within .3s
+  transition: transform 0.3s;
+
+  &__icon {
+    font-size: 6rem;
+    margin-bottom: 0.5rem;
+
+    //if element is a block, the block takes up the entire row(meaning to color extends to the end), inline-block takes up only needed space
+    background-image: linear-gradient(
+      to right,
+      $color-primary-light,
+      $color-primary-dark
+    );
+    //webkit is a vendor prefix, check out in your notes
+    //make so that gradient is ONLY visible where the text exist(behind the text)
+    -webkit-background-clip: text;
+    //make text transparent to see the gradient
+    color: transparent;
+  }
+
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+  }
+}
