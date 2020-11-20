@@ -25,36 +25,36 @@
   }
 
   .col-1-of-2 {
-    //100% of original width, minus the number of space inbetween each block, divided by the totla number of blocks
+    //100% of original width, minus the number of space inbetween each block, divided by the total number of blocks
     width: calc((100% - #{$gutter-horizontal}) / 2);
   }
 
   .col-1-of-3 {
-    //100% of original width, minus the number of space inbetween each block, divided by the totla number of blocks
+    //100% of original width, minus the number of space inbetween each block, divided by the total number of blocks
     width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
   }
 
   .col-2-of-3 {
-    //100% of original width, minus the number of space inbetween each block, divided by the totla number of blocks
+    //100% of original width, minus the number of space inbetween each block, divided by the total number of blocks
     width: calc(
       2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal}
     );
   }
 
   .col-1-of-4 {
-    //100% of original width, minus the number of space inbetween each block, divided by the totla number of blocks
+    //100% of original width, minus the number of space inbetween each block, divided by the total number of blocks
     width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
   }
 
   .col-2-of-4 {
-    //100% of original width, minus the number of space inbetween each block, divided by the totla number of blocks
+    //100% of original width, minus the number of space inbetween each block, divided by the total number of blocks
     width: calc(
       2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal}
     );
   }
 
   .col-3-of-4 {
-    //100% of original width, minus the number of space inbetween each block, divided by the totla number of blocks
+    //100% of original width, minus the number of space inbetween each block, divided by the total number of blocks
     width: calc(
       3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal}
     );

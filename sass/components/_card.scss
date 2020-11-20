@@ -1,0 +1,53 @@
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  /* it is important to set the position to relative because so that other elements will reference to this paraent element(know where to begin positioning aka starting point) */
+  position: relative;
+  //need to have one here as well because position absolute broke the container and is not repairable like clearfix
+  height: 50rem;
+
+  &__side {
+    color: #fff;
+    font-size: 2rem;
+
+    //need to have one on .card well because position absolute broke the container and is not repairable like clearfix
+    height: 50rem;
+    //enable ALL SMOOTH transition within .3s
+    transition: all 0.8s ease;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    //position: absolute makes the width act weird so you need to set it back
+    width: 100%;
+    //hide the backface of the card so the front doesnt show when flipped
+    backface-visibility: hidden;
+    border-radius: 3px;
+    //x direction, y direction, and amount of blur
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+}
