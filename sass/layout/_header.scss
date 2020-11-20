@@ -1,4 +1,3 @@
-
 .header {
   height: 95vh;
   background-image: linear-gradient(
@@ -12,8 +11,10 @@
   /* means the center top of image stays where it is no matter how much we resize image */
   background-position: top;
 
+  //webkit is a vendor prefix, check out in your notes
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* modern css property to clip image */
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
   /* this is where other elements inside the header will reference(know where to start) when positioning */
   position: relative;
