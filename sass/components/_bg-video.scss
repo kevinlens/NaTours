@@ -1,0 +1,21 @@
+.bg-video {
+  //because this is "position: absolute" make sure to give '.section-stores' position: relative
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  z-index: -1;
+  opacity: 0.15;
+  //prevents image from overflowing
+  overflow: hidden;
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    //make the image cover the entire container
+    object-fit: cover;
+
+  }
+}
