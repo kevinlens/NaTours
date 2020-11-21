@@ -52,6 +52,16 @@
       background-color: $color-white;
     }
   }
+  
+  &--green {
+      background-color: $color-primary;
+      color: $color-white;
+  
+      /* Pseudo Elements which has double :: */
+      &::after {
+        background-color: $color-primary;
+      }
+  }
 
   /* this .btn:'after' is a virtual element that we make appear BEHIND(after) our button  */
   /* we are here trying to make the virtual element look the same as the original button */
