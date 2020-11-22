@@ -120,13 +120,13 @@ body {
   margin-top: 10rem; }
 
 .btn {
-  /* the button itself and its assocaited link*/
-  /* the .btn:'visited' will also be the SAME color ect as the .btn:'link' as well */
   /* this .btn:'after' is a virtual element that we make appear BEHIND(after) our button  */
   /* we are here trying to make the virtual element look the same as the original button */ }
-  .btn:link, .btn:visited {
+  .btn, .btn:link, .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
+    border: none;
+    cursor: pointer;
     padding: 1.5rem 4rem;
     /* 'inline-block' would get its own personal space as a block but 'block' would take up the whole line space(meaning it would spread out all the way) */
     display: inline-block;
@@ -146,7 +146,8 @@ body {
       transform: scaleX(1.4) scaleY(1.6);
       /* as you hover over the pseudo element button expands and then transition and then opacity: 0; */
       opacity: 0; }
-  .btn:active {
+  .btn:active, .btn:focus {
+    outline: none;
     transform: translateY(-1px);
     /* axis: x(-x), y(-y), and 10px, in blur(with 1 being no blur) */
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }

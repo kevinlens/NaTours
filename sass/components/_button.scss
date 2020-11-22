@@ -1,4 +1,5 @@
 .btn {
+  &,
   //Pseudo class
   /* the button itself and its assocaited link*/
   /* the .btn:'visited' will also be the SAME color ect as the .btn:'link' as well */
@@ -6,6 +7,10 @@
   &:visited {
     text-transform: uppercase;
     text-decoration: none;
+
+    //customization for default btn
+    border: none;
+    cursor: pointer;
 
     padding: 1.5rem 4rem;
     /* 'inline-block' would get its own personal space as a block but 'block' would take up the whole line space(meaning it would spread out all the way) */
@@ -37,7 +42,9 @@
   }
 
   //Pseudo class
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-1px);
     /* axis: x(-x), y(-y), and 10px, in blur(with 1 being no blur) */
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
@@ -52,15 +59,15 @@
       background-color: $color-white;
     }
   }
-  
+
   &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    /* Pseudo Elements which has double :: */
+    &::after {
       background-color: $color-primary;
-      color: $color-white;
-  
-      /* Pseudo Elements which has double :: */
-      &::after {
-        background-color: $color-primary;
-      }
+    }
   }
 
   /* this .btn:'after' is a virtual element that we make appear BEHIND(after) our button  */
@@ -114,7 +121,7 @@
   }
 
   &:active {
-    box-shadow: 0 .5rem 1rem rgba($color-black, .15);
-    transform: translateY(0)
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
   }
 }
