@@ -4,6 +4,8 @@
   }
 
   &__button {
+    cursor: pointer;
+    text-align: center;
     background-color: $color-white;
     height: 7rem;
     width: 7rem;
@@ -108,7 +110,9 @@
     }
   }
 
-  //not a sibling so you so ~
+  //FUNCTIONALITY
+
+  //not a sibling so you use ~ rather than + which has to be adjacent
   &__checkbox:checked ~ &__background {
     transform: scale(60);
   }
@@ -116,5 +120,62 @@
   &__checkbox:checked ~ &__nav {
     opacity: 1;
     width: 100%;
+  }
+
+  //ICON
+  &__icon {
+    margin-top: 3.5rem;
+    position: relative;
+
+    //we have three elements(1 element, 2 psuedo elements)
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+
+      display: inline-block;
+    }
+    //we have two psuedo elements
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+  }
+
+  //icon is a child element of button so you don't need a +/~
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  //icon is a child element of button so you don't need a +/~
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
   }
 }
