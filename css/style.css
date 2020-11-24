@@ -485,6 +485,26 @@ body {
 .form__radio-input:checked + .form__radio-label .form__radio-button::after {
   opacity: 1; }
 
+.popup {
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999; }
+  .popup__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* this makes it so that the element is actually shifted 50% to the top and left(meaning the center of the element is actually the center) */
+    /* if you didn't do this, by default the left side of this element would be considered to be the center */
+    transform: translate(-50%, -50%);
+    height: 50rem;
+    width: 75%;
+    background-color: #fff;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2); }
+
 .footer {
   background-color: #333;
   padding: 10rem 0;
@@ -559,7 +579,7 @@ body {
   .row:not(:last-child) {
     margin-bottom: 8rem; }
   .row::after {
-    content: "";
+    content: '';
     display: table;
     clear: both; }
   .row [class^='col-'] {

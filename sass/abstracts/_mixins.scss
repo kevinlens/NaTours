@@ -1,10 +1,19 @@
 @mixin clearfix {
   //pseudo element
-  &::after{
-      content:"";
-      //standard version for the clearfix
-      display: table;
-      //clear for both float:left and float:right; 
-      clear: both;
+  &::after {
+    content: '';
+    //standard version for the clearfix
+    display: table;
+    //clear for both float:left and float:right;
+    clear: both;
   }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* this makes it so that the element is actually shifted 50% to the top and left(meaning the center of the element is actually the center) */
+  /* if you didn't do this, by default the left side of this element would be considered to be the center */
+  transform: translate(-50%, -50%);
 }
