@@ -3,13 +3,23 @@
   margin: 0 auto;
   //x direction, y direction, and amount of blur
   box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
-  background-color: rgba($color-white,.6);
+  background-color: rgba($color-white, 0.6);
   border-radius: 3px;
   padding: 6rem;
   padding-left: 9rem;
   font-size: $default-font-size;
 
   transform: skewX(-12deg);
+
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skewX(0);
+  }
 
   &__shape {
     width: 15rem;
@@ -30,6 +40,10 @@
 
     /* this is where other elements inside the header will reference(know where to start) when positioning */
     position: relative;
+
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
   }
 
   &__img {
@@ -43,6 +57,10 @@
 
   &__text {
     transform: skewX(12deg);
+
+    @include respond(phone) {
+      transform: skewX(0);
+    }
   }
 
   &__caption {
